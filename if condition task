@@ -1,0 +1,15 @@
+Discount = 0
+total_amount_of_busticket = 15
+Persons_age = int(input('Enter the persons age :' ))
+
+if Persons_age <= 5:
+  total_amount_of_busticket = 'free'
+elif Persons_age <= 18:
+  Discount = 10
+  total_amount_of_busticket -= Discount
+elif Persons_age >= 60:
+  Discount = 8
+  total_amount_of_busticket -= Discount
+else:
+  total_amount_of_busticket = total_amount_of_busticket
+print("total_amount_of_busticket : ", total_amount_of_busticket)
