@@ -1,0 +1,4 @@
+enter_age = int(input("enter the age : " ))
+
+status = "eligible for vote" if enter_age >= 18 else "not eligible for vote"
+print(status)
