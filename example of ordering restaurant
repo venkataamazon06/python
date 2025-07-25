@@ -1,0 +1,36 @@
+def display_menu(menu):
+  print('Menu')
+  print('--------------')
+  for item,price in menu.items():
+    print(f'{item} : RS. {price}/-')
+def take_order(menu):
+  order={}
+  item = input('Enter the item you want to order:')
+  while item != 'done':
+    if item in menu:
+      quantity = int(input('Enter the quantity : '))
+      order[item] = quantity
+      print(f'{quantity} {item} has been added to your order')
+    else:
+      print(f'{item} is not available')
+    item = input('Enter the item you want to order:')
+ 
+  return order
+ 
+def print_bill(order,menu):
+ 
+  for item,quantity in order.items():
+    total_price = menu[item] * quantity
+  print('\nBill')
+  print('----------')
+  for item,quantity in order.items():
+    print(f"{item} * {quantity} = {menu[item] * quantity}")
+  print(f"total amont = {total_price}")
+ 
+
+def main():
+  menu = {'biryani': 250, 'pizza':150, 'Anycooldrink':100, 'burger':110, 'waterbottle':50}
+  display_menu(menu)
+  order = take_order(menu)
+  print_bill(order,menu)
+main()
