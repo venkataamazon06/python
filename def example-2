@@ -1,0 +1,13 @@
+def applied_discount(original_price, discount):
+  discounted_price = original_price-(original_price*(discount/100))
+  return discounted_price
+def generate_bill(discounted_price):
+  print(f"total bill = {discounted_price}")
+  return discounted_price
+def main():
+  original_price = int(input("enter the original price : "))
+  discount = int(input("enter the discount value : "))
+  discounted_price = applied_discount(original_price, discount)
+  total_bill = generate_bill(discounted_price)
+  print("total bill = ",total_bill)
+main()
