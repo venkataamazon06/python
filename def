@@ -1,0 +1,22 @@
+def applied_dicount(total_amount):
+  if total_amount >= 5000:
+    total_amount -= 1500
+    discount_applied = 1500
+  elif (total_amount >= 3500) or (total_amount >= 3000):
+    total_amount -= 1000
+    discount_applied = 1000
+  elif total_amount >= 850:
+    total_amount -= 350
+    discount_applied = 350
+  else:
+    total_amount
+  return total_amount, discount_applied
+def geneterante_bill(total_amount):
+  print("total bill = ",total_amount)
+
+def main():
+  total_amount = int(input("enter the total amount: "))
+  total_amount = applied_dicount(total_amount)
+  geneterante_bill(total_amount)
+  print("discount applied = ",total_amount[1])
+main()
