@@ -1,0 +1,33 @@
+def bill_ontime(user_name, cardnumber, amount):
+  amount = int(input("Enter the amount : "))
+  print(f"{user_name} paid full payment of amount {amount} with card number{cardnumber}")
+
+
+def minimum_fee(user_name, cardnumber, total_bill, amount):
+  amount = int(input("Enter the amount : "))
+  total_bill -= amount
+  print(f"{user_name} paid minimum fee of amount {amount} with card number{cardnumber} and need to be paid remaining {total_bill}")
+  
+def late_fee(user_name, cardnumber, total_bill, latefees, amount):
+  total_bill += latefees
+  print("total bill = ", total_bill)
+  amount = int(input("Enter the amount : "))
+  print(f"{user_name} paid total bill {total_bill} including late fee of amount {latefees} with card number{cardnumber} ")
+def main():
+  user_name= str(input("Enter the username : "))
+  cardnumber = int(input("Enter the card number: "))
+  total_bill = int(input("Enter the total bill : "))
+  option = input("Select the Option Fullpayment / Minimum-Fee / other amount / Latefee : ").strip().lower()
+  
+  
+  if option == "fullpayment":
+    bill_ontime(user_name,cardnumber, amount = 0)
+  elif option == "minimumfee":
+    minimum_fee(user_name,cardnumber,total_bill, amount = 0)
+  elif option == "latefee":
+    latefees = int(input("Enter the late fee : "))
+    late_fee(user_name, cardnumber, total_bill, latefees, amount = 0)
+  else:
+    print("Invalid option")
+
+main()
