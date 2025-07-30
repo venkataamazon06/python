@@ -1,0 +1,10 @@
+cart_products = [
+    ("Wireless Bluetooth Headphones", 1499.0),
+    ("Smartphone (6GB RAM, 128GB)", 13999.0),
+    ("Laptop (i5, 8GB RAM, 512GB SSD)", 48999.0)
+]
+
+from functools import reduce
+total_cart_value = reduce(lambda temp_total, product: temp_total + product[1], cart_products, 0)
+
+print("Total cart value using reduce:", total_cart_value)
