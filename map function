@@ -1,0 +1,13 @@
+zepto_cart = {
+    "Amul Milk 1L": 60,
+    "Bananas (1 dozen)": 50,
+    "Maggi Noodles (4-pack)": 55,
+    "Tata Salt 1kg": 28,
+    "Aashirvaad Atta 5kg": 285,
+    "Colgate Toothpaste 200g": 90,
+    "Coca-Cola 1.25L": 45
+}
+
+discounted_products  = list(map(lambda item: (item[0], item[1] - (item[1] * 10 / 100 )), zepto_cart.items()))
+
+print("applied discounted items are :" , discounted_products)
