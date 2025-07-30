@@ -1,0 +1,16 @@
+employees = [
+    ("Amit Sharma", 45000),
+    ("Neha Verma", 52000),
+    ("Rahul Mehta", 61000),
+    ("Priya Singh", 48000),
+    ("Vikram Patel", 70000),
+    ("Sneha Reddy", 55000),
+    ("Arjun Das", 47000),
+    ("Kavita Iyer", 58000),
+    ("Rohan Kapoor", 64000),
+    ("Divya Nair", 53000)
+]
+
+filtered_employees = list(filter(lambda employee : employee[1]>60000, employees))
+
+print("Employees with salary greater than 60000:", filtered_employees)
