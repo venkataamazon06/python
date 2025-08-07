@@ -1,0 +1,16 @@
+class Student:
+  def __init__(self, name,id,group):
+    self.name=name
+    self.id=id
+    self.group=group
+  def display_details(self):
+    print("student details")
+    print("-"*20)
+    print(f"name : {self.name}")
+    print(f"id : {self.id}")
+    print(f"group : {self.group}")
+
+student1 =Student('sai',143225, 'ECE')
+student1.display_details()
+student2 =Student('rajesh',1233225, 'CSE')
+student2.display_details()
