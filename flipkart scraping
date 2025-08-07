@@ -1,0 +1,40 @@
+import urllib.request
+from bs4 import BeautifulSoup
+
+def flipkart_scraping(url):
+  headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36'}
+  req = urllib.request.Request(url, headers=headers)
+  response = urllib.request.urlopen(req)
+  html_content = response.read()
+  soup = BeautifulSoup(html_content, 'html.parser')
+
+  mobile_card = soup.find_all('div', class_ = '_75nlfW')
+  print(f"Total mobiles found : {len(mobile_card)}")
+  mobiles_list = []
+
+  for idx, mobile_card in enumerate(mobile_card, start = 1):
+    mobile_name = mobile_card.find('div', class_='KzDlHZ')
+    mobile_details =  mobile_card.find('li', class_='J+igdf')
+
+
+    mobile_name = mobile_name.text.strip()
+    mobile_details = mobile_details.text.strip()
+    mobiles_list.append({
+      'mobile_name': mobile_name,
+      'mobile_details': mobile_details
+
+    })
+
+    print(f" mobile {idx} : ")
+    print(f"mobile name : {mobile_name}")
+    print(f"mobile details : {mobile_details}")
+    print("------------")
+
+
+
+
+flipkart_url = 'https://www.flipkart.com/search?q=mobiles&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off'
+
+
+
+flipkart_scraping(flipkart_url)
