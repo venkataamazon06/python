@@ -1,0 +1,55 @@
+class Atm:
+  def __init__(self,accountholder,accountnumber,balance):
+    self.accountholder=accountholder
+    self.accountnumber=accountnumber
+    self.balance=balance
+    self.transaction = []
+  def balance_enquiry(self):
+    print(f"your balance is ₹{self.balance}")
+  def withdrawl(self,amount):
+    if amount<=self.balance:
+      self.balance-=amount
+      self.transaction.append(f"withdrawl of ₹{amount}") 
+      print("withdrawl successful")
+      print(f"After withdrawl your balance is ₹{self.balance}")
+    else:
+      print("Insufficient balance")
+  def ministatement(self):
+    print("MINI statement")
+    print("-"*20)
+    print(f"Account holder name: {self.accountholder}")
+    print(f"Account Number : {self.accountnumber} ")
+    print(f"your current balance is ₹{self.balance}")
+    print("------------")
+    print("Transaction history:")
+    for transaction in self.transaction:
+      print(transaction)
+
+
+
+class EnhancedAtm(Atm):
+  def __init__(self,accountholder,accountnumber,balance,pin,mobilenumber):
+    super(). __init__(accountholder,accountnumber,balance)
+    self.pin=pin
+    self.mobilenumber=mobilenumber
+  def cashdeposit(self,amount):
+    self.balance+=amount
+    cashdeposit_amount=amount
+    self.transaction.append(f"cashdeposit of ₹{cashdeposit_amount}")
+    print("cash deposited successfully")
+    print(f"your balance is ₹{self.balance}")
+  def changepin(self,newpin):
+    if len(str(newpin))==4:
+      self.pin=newpin
+      print("pin changed successfully")
+  def changemobilenumber(self,newmobilenumber):
+    if len(str(newmobilenumber))==10:
+      self.mobilenumber=newmobilenumber
+      print("mobile number changed successfully")
+accountholder1 = EnhancedAtm('sai',1234567,20000,1432,9989396096)
+accountholder1.withdrawl(1000)
+accountholder1.balance_enquiry()
+accountholder1.cashdeposit(500)
+accountholder1.ministatement()
+accountholder1.changepin(1234)
+
