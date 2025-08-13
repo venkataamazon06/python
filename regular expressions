@@ -1,0 +1,22 @@
+import re
+
+def detect_card_type(card_number: str) -> str:
+    card_number = card_number.replace(" ", "").strip()
+
+    # Define regex patterns
+    visa = r"^4\d{12}(\d{3})?(\d{3})?$"
+    mastercard = r"^(5[1-5]\d{14}|2(2[2-9]\d{2}|2[3-9]\d{2}|[3-6]\d{3}|7([01]\d{2}|20\d{2}))\d{12})$"
+    maestro = r"^(5018|5020|5038|56\d{2}|57\d{2}|58\d{2}|6304|6759|676[1-3])\d{8,15}$"
+    rupay = r"^(508[5-9]\d{2}|6069[8-9]\d|607[0-3]\d{2}|6076[0-4]\d|6080[0-4]\d|6521[0-4]\d)\d{10}$"
+
+    # Match against each pattern
+    if re.match(visa, card_number):
+        return "Visa"
+    elif re.match(mastercard, card_number):
+        return "MasterCard"
+    elif re.match(maestro, card_number):
+        return "Maestro"
+    elif re.match(rupay, card_number):
+        return "RuPay"
+    else:
+        return "Unknown or unsupported card type"
